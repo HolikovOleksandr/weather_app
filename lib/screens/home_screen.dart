@@ -36,14 +36,32 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Wheather'),
-      ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              height: size.height * .7,
+              width: size.width,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                gradient: const LinearGradient(
+                    colors: [Color(0xFF955CD1), Color(0xFF3FA2FA)],
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    stops: [.15, .95]),
+              ),
+              child: Column(children: [
+                Text(
+                  'Constantine',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                  ),
+                )
+              ]),
+            ),
             Text(
               currentWeather,
               style: Theme.of(context).textTheme.titleLarge,
