@@ -22,7 +22,8 @@ class WeatherService {
         return Weather.fromJson(jsonDecode(response.body));
       } else {
         throw Exception(
-            'Can not get wheather information, ${response.statusCode}');
+          'Can not get wheather information, ${response.statusCode}',
+        );
       }
     } catch (e) {
       rethrow;

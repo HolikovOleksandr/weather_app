@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String currentWeather = '';
   double tempC = 0;
   double tempF = 0;
+  double wind = 0;
 
   @override
   void initState() {
@@ -32,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       currentWeather = weather.condition;
       tempC = weather.temperatureC;
       tempF = weather.temperatureF;
+      wind = weather.windKPH;
     });
   }
 
@@ -62,19 +64,21 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   const Text(
-                    'Constantine',
+                    'Ukraine',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 44,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
+                  const SizedBox(height: 10),
                   Text(
-                    currentDay,
+                    wind.toString(),
+                    // currentDay,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 16,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w400,
                     ),
