@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/model/weather.dart';
 import 'package:weather_app/services/weather_service.dart';
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -36,12 +37,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var formatter = DateFormat('EEEE, d MMMM yyyy');
+    var currentDay = formatter.format(DateTime.now());
+
     var size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Center(
         child: Column(
           children: [
             Container(
+              padding: const EdgeInsets.only(top: 30),
+              margin: const EdgeInsets.symmetric(horizontal: 10),
               height: size.height * .7,
               width: size.width,
               decoration: BoxDecoration(
@@ -52,15 +59,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     end: Alignment.topCenter,
                     stops: [.15, .95]),
               ),
-              child: Column(children: [
-                Text(
-                  'Constantine',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
+              child: Column(
+                children: [
+                  const Text(
+                    'Constantine',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                )
-              ]),
+                  Text(
+                    currentDay,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
             ),
             Text(
               currentWeather,
