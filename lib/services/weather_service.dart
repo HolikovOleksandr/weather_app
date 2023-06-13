@@ -1,13 +1,13 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:weather_app/model/weather.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class WeatherService {
-  Future<Weather> getWeatherData(String place) async {
+  Future<Weather> getWeatherData(var lat, var long) async {
     try {
       final queryParameters = {
-        'key': '914b26eff8c04929a5c134248231106',
-        'q': place,
+        'key': '19d4c2b28b4143ec816191550231106',
+        'q': '$lat,$long',
       };
 
       final url = Uri.http(
